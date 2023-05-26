@@ -69,4 +69,7 @@ void DoubleLinkedList::addNote() {
 
 	newNode->next = current->next; //step4
 	newNode->prev = current; //step5
+	if (current->next != NULL)
+		current->next->pewv = newNode;	// step 6
+
 }

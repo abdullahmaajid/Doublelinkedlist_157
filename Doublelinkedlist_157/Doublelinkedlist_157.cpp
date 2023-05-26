@@ -40,7 +40,7 @@ void DoubleLinkedList::addNode() {
 	newNode->noMhs = nim;//step2
 	newNode->name = nm; //step2
 
-	/ insert a node in the biginning of a doubly - linked list /
+	// insert a node in the biginning of a doubly - linked list //
 		if (START == NULL || nim <= START->noMhs) {
 			if (START != NULL && nim == START->noMhs) {
 				cout << "\nDuplicate number not allowed" << endl;
@@ -54,7 +54,7 @@ void DoubleLinkedList::addNode() {
 			return;
 		}
 
-	/ Inserting a Node Beetwen The Nodes in the List /
+	// Inserting a Node Beetwen The Nodes in the List //
 		Node * current = START; //step1.a
 	Node* previous = NULL; //step1.b
 	while (current->next != NULL && current->next->noMhs < nim) //step1.c

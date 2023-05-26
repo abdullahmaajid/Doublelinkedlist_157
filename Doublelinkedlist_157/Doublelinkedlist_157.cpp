@@ -3,6 +3,7 @@
 using namespace std;
 
 class Node {
+public:
 	int noMhs;
 	string name;
 	Node* next;
@@ -14,11 +15,11 @@ private:
 	Node* START;
 public:
 	DoubleLinkedList();
-	void addNote();
-	void search(int rollNo, Node** previous, Node** current);
+	void addNode();
+	bool search(int rollNo, Node** previous, Node** current);
 	bool deleteNode(int rollNo);
 	bool listEmpty();
-	void traverse();
+	void traverseO();
 	void revtraverse();
 	void hapus();
 	void searchData();
@@ -28,30 +29,30 @@ DoubleLinkedList::DoubleLinkedList() {
 	START = NULL;
 }
 
-void DoubleLinkedList::addNote() {
+void DoubleLinkedList::addNode() {
 	int nim;
 	string nm;
-	cout << "\n Enter the roll number of the student: ";
+	cout << "\nEnter the roll number of the student: ";
 	cin >> nim;
-	cout << "\n Enter the name number of the student: ";
+	cout << "\nEnter the name of the student: ";
 	cin >> nm;
-	Node* newNode = new Node();											// Step 1
-	newNode->noMhs = nim;												// Step 2
-	newNode->name = nm;													// Step 2
+	Node* newNode = new Node(); //step1
+	newNode->noMhs = nim;//step2
+	newNode->name = nm; //step2
 
-	/* Insert a node in the begining of a doubly - Linked List */
-	if (START == NULL || nim <= START->noMhs) {
-		if (START != NULL && nim == START->noMhs) {
-			cout << "\n Duplicate number not allowed" << endl;
+	// insert a node in the biginning of a doubly - linked list /
+		if (START == NULL || nim <= START->noMhs) {
+			if (START != NULL && nim == START->noMhs) {
+				cout << "\nDuplicate number not allowed" << endl;
+			}
+			newNode->next = START; //step3
+			if (START != NULL)
+				START->prev = newNode; //step4
+			newNode->prev = NULL; //step5
+			START = newNode; //step6
 			return;
 		}
-		newNode->next = START;											// Step 3
-		if (START != NULL)
-			START->prev = newNode;										// Step 4
-		newNode->prev = NULL;											// Step 5
-		START = newNode;												// Step 6
-		return;
-	}
+
 
 	// Inserting a Node Beetwen The Nodes in the List //
 		Node * current = START; //step1.a
@@ -70,7 +71,11 @@ void DoubleLinkedList::addNote() {
 	newNode->next = current->next; //step4
 	newNode->prev = current; //step5
 	if (current->next != NULL)
-		current->next->pewv = newNode;	// step 6
+		current->next->prev = newNode;	// step 6
 	current->next = newNode; //step7
 
+}
+
+bool DoubleLinkedList::search(int rollNo, Node** previous, Node** current) {
+	*previous = NULL //step 1.a
 }

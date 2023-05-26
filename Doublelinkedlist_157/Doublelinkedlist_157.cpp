@@ -22,5 +22,8 @@ public:
 	void revtraverse();
 	void hapus();
 	void searchData();
-
 };
+
+DoubleLinkedList::DoubleLinkedList() {
+	START = NULL
+}
